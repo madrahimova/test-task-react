@@ -1,3 +1,9 @@
+# IDE data
+.idea/
+
+# macOS cache
+.DS_Store
+
 # Logs
 logs
 *.log
