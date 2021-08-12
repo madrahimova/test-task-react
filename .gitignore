@@ -4,6 +4,9 @@
 # macOS cache
 .DS_Store
 
+# Temporary NPM files
+*-lock.json
+
 # Logs
 logs
 *.log
