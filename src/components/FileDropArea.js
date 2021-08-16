@@ -26,8 +26,7 @@ class FileDropArea extends React.Component {
         e.preventDefault();
         if (this.state.drag) {
             e.target.classList.add("fd-area_drag-in");
-        }
-        else {
+        } else {
             e.target.classList.remove("fd-area_drag-in");
         }
     }
@@ -48,12 +47,12 @@ class FileDropArea extends React.Component {
 
     render() {
         return (
-            <div className="fd-area_container">
-                <div className="fd-area"
-                    onDrop={this.drop}
-                    onDragLeave={this.dragOut}
-                    onDragEnter={this.dragIn}
-                    onDragOver={this.drag}>
+            <div className="container center">
+                <div className="box center fd-area"
+                     onDrop={this.drop}
+                     onDragLeave={this.dragOut}
+                     onDragEnter={this.dragIn}
+                     onDragOver={this.drag}>
                     DROP HERE
                 </div>
             </div>
