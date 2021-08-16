@@ -1,5 +1,6 @@
 import React from "react";
 
+const ITEM_HEIGHT = 50;
 const DEFAULT_LOAD_COUNT = 30;
 let LOAD_COUNT = DEFAULT_LOAD_COUNT;
 
@@ -77,7 +78,7 @@ class ParticipantsList extends React.Component {
     isBottom = (e) => {
         return e.scrollTop + e.offsetHeight >= e.scrollHeight;
     }
-
+    
     render() {
         const Loading = () => {
             if (this.state.loading) {
@@ -87,7 +88,8 @@ class ParticipantsList extends React.Component {
             }
         }
         const Line = () => {
-            if (this.state.loadCount > 0 && this.state.loadCount < DEFAULT_LOAD_COUNT) {
+            if (this.state.loadCount > 0 &&
+                ITEM_HEIGHT * this.state.loadCount < this.list.current.clientHeight) {
                 return <span className="pl_item__last"/>
             } else {
                 return null;
