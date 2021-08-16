@@ -101,7 +101,7 @@ class ParticipantsList extends React.Component {
                     <div className="wrapper pl" ref={this.list} onScroll={this.trackScroll}>
                         {this.state.participants.map((item, index) =>
                             <div className="pl_item" key={index}>
-                                <div>{index + ": "+ item}</div>
+                                <div>{item}</div>
                                 <button onClick={() => {
                                     this.deleteItem(index);
                                 }}>X
