@@ -9,4 +9,4 @@
 ``npm run start-client``
 
 - Создание файла с данными:
-``npm run generate-date``
+``npm run generate-data``
