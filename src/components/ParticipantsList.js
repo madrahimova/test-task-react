@@ -13,10 +13,25 @@ class ParticipantsList extends React.Component {
     }
 
     list = React.createRef();
+    line = React.createRef();
 
     componentDidMount() {
         this.reset();
+        window.addEventListener('resize', this.updateListDecoration);
         this.loadData(0, LOAD_COUNT);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.updateListDecoration();
+    }
+
+    updateListDecoration = () => {
+        if (this.state.loadCount <= 0 ||
+            ITEM_HEIGHT * this.state.loadCount >= this.list.current.clientHeight) {
+            this.line.current.classList.remove("pl_item__last");
+        } else {
+            this.line.current.classList.add("pl_item__last");
+        }
     }
 
     setLoading = (loading) => {
@@ -78,19 +93,11 @@ class ParticipantsList extends React.Component {
     isBottom = (e) => {
         return e.scrollTop + e.offsetHeight >= e.scrollHeight;
     }
-    
+
     render() {
         const Loading = () => {
             if (this.state.loading) {
                 return <div className="loading">Loading...</div>
-            } else {
-                return null;
-            }
-        }
-        const Line = () => {
-            if (this.state.loadCount > 0 &&
-                ITEM_HEIGHT * this.state.loadCount < this.list.current.clientHeight) {
-                return <span className="pl_item__last"/>
             } else {
                 return null;
             }
@@ -109,7 +116,7 @@ class ParticipantsList extends React.Component {
                                 }}>X
                                 </button>
                             </div>)}
-                        <Line/>
+                        <span ref={this.line}/>
                     </div>
                     <Loading loading={this.state.loading}/>
                 </div>
