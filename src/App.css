@@ -13,8 +13,8 @@
 .box {
   width: 600px;
   height: 200px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 .wrapper {
