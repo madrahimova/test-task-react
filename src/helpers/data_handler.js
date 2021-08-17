@@ -12,8 +12,8 @@ class DataHandler {
     }
 
     handle = async (data, pos, count, firstCall = true) => {
-        if (firstCall && ! pos) {
-            this.data = Array.from(this.prepare([data])).sort();
+        if (firstCall && !pos) {
+            this.data = Array.from(this.prepare([data])).sort((a, b) => a.localeCompare(b));
         }
         return this.data.splice(pos, count);
     }
