@@ -21,6 +21,10 @@ app.post('/api/set_data', (req, res) => {
 });
 
 app.post('/api/get_data', (req, res) => {
+    if (!data) {
+        res.send();
+        return;
+    }
     const pos = req.body.pos;
     const count = req.body.count;
     handler.handle(data, pos, count)
